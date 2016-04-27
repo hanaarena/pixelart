@@ -1,0 +1,35 @@
+{
+  "name": "pixelart",
+  "version": "0.0.1",
+  "description": "Transfer image to pixel art in terminal,also implement to-pixel in command line",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "hanaarena/pixelart",
+  "bin": {
+    "pixelart": "index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=4"
+  },
+  "keywords": [
+    "pixel",
+    "pixelart",
+    "canvas",
+    "command-line",
+    "image",
+    "term2"
+  ],
+  "dependencies": {
+    "canvas": "^1.3.12",
+    "color": "^0.11.1",
+    "meow": "^3.7.0",
+    "term-img": "^0.2.0"
+  },
+  "author": "Lanz",
+  "license": "MIT"
+}
