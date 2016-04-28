@@ -24,7 +24,7 @@ npm install -g pixelart
 
 -  png
 -  jpeg
--  [TODO] Remote URL
+-  URL
 
 ## Usage
 ```bash

@@ -17,7 +17,7 @@ const img = new Image
 const cli = meow(`
   Usage:
 
-    pixelart <path>
+    pixelart <path | url>
 
     -w --width output width
     -h --height output height
