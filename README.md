@@ -1,4 +1,4 @@
-[![](https://raw.githubusercontent.com/hanaarena/pixelart/master/logo.png)]()
+[![](https://raw.githubusercontent.com/hanaarena/pixelart/master/after.png)]()
 
 # pixelart [![NPM version](https://img.shields.io/npm/v/pixelart.svg)](https://npmjs.com/package/pixelart)
 
