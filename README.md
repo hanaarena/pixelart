@@ -2,7 +2,7 @@
 
 # pixelart [![NPM version](https://img.shields.io/npm/v/pixelart.svg)](https://npmjs.com/package/pixelart)
 
-Transfer image to pixel art in terminal,also implement to-pixel in command line
+Display pixelart processed image in terminal, a CLI tool for to-pixel
 
 >  An image is worth a thousand words:
 

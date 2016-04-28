@@ -1,7 +1,7 @@
 {
   "name": "pixelart",
-  "version": "0.0.1",
-  "description": "Transfer image to pixel art in terminal,also implement to-pixel in command line",
+  "version": "0.0.2",
+  "description": "Display pixelart processed image in terminal, a CLI tool for to-pixel",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,7 +27,10 @@
   "dependencies": {
     "canvas": "^1.3.12",
     "color": "^0.11.1",
+    "is-url": "^1.2.1",
     "meow": "^3.7.0",
+    "nugget": "^2.0.0",
+    "tempfile": "^1.1.1",
     "term-img": "^0.2.0"
   },
   "author": "Lanz",

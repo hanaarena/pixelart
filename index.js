@@ -2,10 +2,14 @@
 'use strict'
 
 const fs = require('fs')
+const path = require('path')
 const Color = require('color')
 const termImg = require('term-img')
 const Canvas = require('canvas')
 const meow = require('meow')
+const isUrl = require('is-url')
+const tempFile = require('tempfile')
+const nugget = require('nugget')
 const Image = Canvas.Image
 const canvas = new Canvas(500, 500)
 const context = canvas.getContext('2d')
@@ -32,9 +36,16 @@ let options = {}
 
 if (!file) {
   cli.showHelp()
+} else if (!isUrl(file)) {
+  console.error('it look like not a url')
+  process.exit(1)
+} else {
+  createReader(canvas, cli.flags)
 }
 
 function createReader (canvas, opt) {
+  let targetFile = file
+
   Object.assign(options, {
     pixel: opt.pixel || 6,
     row: opt.width || 30,
@@ -52,7 +63,10 @@ function createReader (canvas, opt) {
 
     termImg(canvasData, {
       width: options.row,
-      fallback: () => new Error('Oops!Not supported here!')
+      fallback: () => {
+        console.error('Oops!Not supported here!')
+        process.exit(1)
+      }
     })
   }
 
@@ -60,6 +74,25 @@ function createReader (canvas, opt) {
     throw err
   }
 
+  if (isUrl(file)) {
+    let tempPath = tempFile()
+    const dir = path.dirname(tempPath)
+    const target = path.basename(tempPath)
+
+    nugget(file, {dir, target, quiet: true}, function (err) {
+      if (err) {
+        console.error(err.stack)
+        process.exit(1)
+      }
+
+      readFile(tempPath)
+    })
+  } else {
+    readFile(file)
+  }
+}
+
+function readFile (file) {
   fs.readFile(file, (err, squid) => {
     if (err) throw err
     img.src = squid
@@ -143,6 +176,3 @@ function drawCanvas (context) {
 
   return _canvas
 }
-
-// init
-createReader(canvas, cli.flags)
